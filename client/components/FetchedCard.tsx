@@ -11,8 +11,10 @@ import {
 import Image from "next/image";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
+import { useRouter } from "next/navigation";
 
 const FetchedCard = () => {
+  const router = useRouter();
   return (
     <Card className="w-[80%] text-center">
       <CardHeader className="border p-2">
@@ -48,7 +50,12 @@ const FetchedCard = () => {
           <span className="text-xl font-semibold text-gray-500 leading-relaxed md:leading-loose px-2">
             price : $497
           </span>
-          <Button className=" w-1/2 mb-1">See More</Button>
+          <Button
+            className=" w-1/2 mb-1"
+            onClick={() => router.push("/hotelDetails")}
+          >
+            See More
+          </Button>
         </div>
       </CardContent>
     </Card>

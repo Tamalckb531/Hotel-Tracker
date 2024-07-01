@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 
 import {
@@ -10,6 +12,7 @@ import {
 } from "@/components/ui/card";
 import { Button } from "./ui/button";
 import { Badge } from "@/components/ui/badge";
+import { useRouter } from "next/navigation";
 
 interface CardProps {
   title: string;
@@ -24,6 +27,8 @@ const HotelCard: React.FC<CardProps> = ({
   imgLink,
   location,
 }) => {
+  const router = useRouter();
+
   return (
     <Card className="overflow-hidden h-[52vh]">
       <CardHeader>
@@ -49,7 +54,9 @@ const HotelCard: React.FC<CardProps> = ({
         </div>
       </CardContent>
       <CardFooter className=" w-full flex justify-center items-center">
-        <Button className="w-1/2">See More</Button>
+        <Button className="w-1/2" onClick={() => router.push("/hotelDetails")}>
+          See More
+        </Button>
       </CardFooter>
     </Card>
   );
