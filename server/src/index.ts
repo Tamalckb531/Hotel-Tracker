@@ -1,11 +1,19 @@
 import express from "express";
 
-import userRoute from './routes/userRoute'
+import authRoute from './routes/auth.route'
+import dotenv from "dotenv";
+import cookieParser from "cookie-parser";
+
+
+dotenv.config();
 
 const app = express(); 
 const port = 3000;
 
-app.use('/test/user', userRoute);
+app.use(express.json()); 
+app.use(cookieParser()); 
+
+app.use('/api/auth', authRoute);
 
 app.listen(port, () => {
     console.log("Server is running in port : ", port);
