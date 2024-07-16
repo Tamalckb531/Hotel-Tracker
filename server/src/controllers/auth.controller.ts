@@ -30,7 +30,12 @@ const SignUpSchema = BaseAuthSchema.extend({
     lastName: z.string().min(3).max(10),
 });
 
+
 const LoginSchema = BaseAuthSchema;
+
+//? Also could have done this for Typescript schema 
+// type SignUpBodyPropsX = z.infer<typeof SignUpSchema>
+// type LoginBodyPropsX = Pick<SignUpBodyProps, 'email' | 'password'>;
 //? --------- Zod Schema --------- 
 
 export const signupProcess = async(req: any, res: any) => {

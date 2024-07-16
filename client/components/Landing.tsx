@@ -3,9 +3,7 @@ import HotelCard from "./HotelCard";
 import WebButton from "./WebButton";
 
 const Landing = () => {
-  return (
-   
-  );
+  return <div>Hello</div>;
 };
 
 export default Landing;
